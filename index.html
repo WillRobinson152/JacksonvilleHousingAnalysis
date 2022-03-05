@@ -4,3 +4,27 @@
 <body>
   <p>This the final report of one of two capstone projects I completed for the Springboard Data Science Career Track program.</p>
   <p>Project for Springboard Data Science Career Track where I explore the housing inventory and home sales of Jacksonville, Florida, through 2020.</p>
+  <br>
+  <h2>Problem Statement</h2>
+  <p>House sales have soared since the onset of the pandemic. Demand surged as homes became  offices and schools and as many apartment renters sought out space and more control over their environment. Buyers also benefitted from low interest rates and stimulus funds.</p>
+  <p>Inventory has not kept pace, however, since those who did not have to sell their homes hunkered down. As a result, prices have surged, pricing out many first-time buyers, which creates a business opportunity for homebuilders. In seeking to serve this market, builders need to know what features and locations Jacksonville’s first-time buyers are seeking and what the price range is.</p>
+  <p>I used Jacksonville’s county tax roll to answer these questions. I merged parcel and sales files to create a database that detailed each home’s age, square footage, lot size, features, subfeatures, sales history, key characteristics, zoning and more. I used this data to explore construction and sales trends and better understand what home traits contribute most to sales price.</p>
+  <h2>Data Wrangling</h2>
+  <p>The parcel and sales data maintained by the Duval County Property Appraiser are available as txt files on the appraiser’s website. The parcel file contained 17 tables with pipe delimited rows, and the sales file contained four tables with fixed widths. However, the parcel file contained a table for recent sales, and the sales file contained tables that were also in the parcel file. I put both files into a single, 17-table SQLite file by replacing the parcel file’s sales table with the data from the sales file and dropping the duplicative tables from the parcel file.</p>
+  <p>I added an 18th table which contained a dictionary of qualification codes, which allowed me to limit my analysis to only arms-length transactions.</p>
+  <p>This SQLite file contained data for every parcel in Duval County, so I wrote queries to limit results to only detached, single-family homes and to combine data from 12 tables into a single table with each row representing one house. Five of the tables were not useful for my analysis.</p>
+  <p>Getting the data to one row per house required creating dummy columns for features, subfeatures, zoning rights and characteristics. Because each of these have dozens of unique values, I created dummy columns for only the 10 most common of each.</p>
+  <p>The merged data needed several cleaning steps. This included using string comparison to standardize texts in mailing addresses, cities, states, zip codes and owners. This step aided in exploratory data analysis, but many of these features were not used by my models. Another step involved creating an adjusted valuation that creates distinct values for each house on parcels that contain more than one house.</p>
+  <p>I used two separate tables for exploratory data analysis, one showing the entire housing inventory and one showing about 30 years of sales. The inventory table consisted of 87 features for about 253,000 homes. The sales file contained eight rows pertaining to more than 340,000 sales. At the modeling stage, I reduced this dataset to the about 49,000 sales completed since 2017.</p>
+  <h2>Exploratory Data Analysis</h2>
+  <p>Jacksonville has nearly 253,000 detached single-family homes with a total valuation of more than $49 billion, by the Duval County Property Appraiser's estimation. Condominiums, townhomes, quadruplexes, duplexes and mobile homes have been excluded from this analysis.</p>
+  <p>The median home in Jacksonville is 39 years old, with five years knocked off by renovations and updates. It spans a total of 2,142 square feet, 1,644-square-feet of which are heated. It has a value of about $163,000.</p>
+  <h3>Construction</h3
+  <p>Home construction in Jacksonville has had multiple boom and bust periods. After reaching a peak of more than 6,000 homes constructed in 1960, home construction plummeted to about 1,200 by 1967, a total drop of 80% and an annualized decrease of about 11.5%. The market hit another peak of almost 5,600 in 2005 before dropping to 871 in 2011, a total decrease of 84.5% and an annualized decrease of 14.1%. Home construction has increased every year since 2011, totaling more than 3,700 in 2019.</p>
+  <p>Historically, home construction in Jacksonville began along the beaches and around downtown at an elbow of the St. Johns River. In the map below, the oldest 50% of homes are colored blue, with the darker shade being the oldest quartile. Some of the oldest districts include San Marco, Avondale, Springfield, the Beaches and Arlington.</p>
+  <p>More recent construction has concentrated along the Intracoastal Waterway (located between downtown and the beach), in Fleming Island and along the border with St. Johns County to the south, near the airport and waterways to the north and in the fringes of Westside, including near Cecil Commerce Center. In the map below, the youngest 50% of homes are colored green, with the darker shade being the youngest quartile.</p>
+  <img src=/Images/Picture1.png />
+  <p></p>
+  <p></p>
+  <p></p>
+</body>
