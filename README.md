@@ -16,6 +16,6 @@
 <p>
   For this project, I chose to explore the housing inventory and home sales of Jacksonville, Florida, through 2020. I completed this project in February 2021.
 </p>
-<p><
-  strong>To view the final report, click <a href="https://willrobinson152.github.io/JacksonvilleHousingAnalysis/">here</a>.</strong>
+<p>
+  <strong>To view the final report, click <a href="https://willrobinson152.github.io/JacksonvilleHousingAnalysis/">here</a>.</strong>
 </p>
